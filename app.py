@@ -25,7 +25,7 @@ skill_db = ["Python", "Java", "SQL", "Machine Learning", "C++", "React", "DBMS",
 st.sidebar.header("User Profile")
 name = st.sidebar.text_input("Enter your Name")
 
-# 3. MAIN LOGIC (Indented 0 spaces)
+# 3. MAIN LOGIC 
 resume_file = st.file_uploader("Upload your Resume (PDF)", type="pdf")
 
 if resume_file:
@@ -39,7 +39,7 @@ if resume_file:
         
         found_skills = [skill for skill in skill_db if skill.lower() in full_text.lower()]
     
-    # Display Results (Back to 4 spaces)
+    # Display Results 
     st.success("Analysis Complete!")
     st.write(f"### Hello {name if name else 'Candidate'}, here are the skills we found:")
     if found_skills:
@@ -74,7 +74,7 @@ if resume_file:
         else:
             st.success("🔥 High Match! You're ready to apply.")
 
-    # --- SECTION C: GITHUB VERIFIER (Indented 4 spaces) ---
+    # --- SECTION C: GITHUB VERIFIER
     st.divider()
     st.subheader("🛡️ Step 3: GitHub Verification")
     github_user = st.text_input("Enter GitHub Username to verify skills:")
