@@ -29,9 +29,9 @@ name = st.sidebar.text_input("Enter your Name")
 resume_file = st.file_uploader("Upload your Resume (PDF)", type="pdf")
 
 if resume_file:
-    # --- SECTION A: RESUME PARSING (Indented 4 spaces) ---
+    # --- SECTION A: RESUME PARSING 
     with st.spinner("Analyzing your resume..."):
-        # Indented 8 spaces inside the spinner
+        
         doc = fitz.open(stream=resume_file.read(), filetype="pdf")
         full_text = ""
         for page in doc:
