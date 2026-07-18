@@ -109,7 +109,25 @@ if resume_file:
                     job_embed = embed_model.encode(job_desc, convert_to_tensor=True)
                     resume_embed = embed_model.encode(full_text, convert_to_tensor=True)
                     score = util.cos_sim(resume_embed, job_embed)
-                    match_pct = round(float(score[0][0]) * 100, 2)
+                    semantic_score = float(score[0][0]) * 100
+                    
+                    # --- Strict Keyword Tally ---
+                    resume_lower = full_text.lower()
+                    jd_lower = job_desc.lower()
+                    
+                    # Check which skills from your skill_db are explicitly demanded in the JD
+                    skills_in_jd = [s for s in skill_db if s.lower() in jd_lower]
+                    
+                    if skills_in_jd:
+                        # Tally how many of those target skills are present in the resume
+                        matched_skills = [s for s in skills_in_jd if s.lower() in resume_lower]
+                        skill_tally_score = (len(matched_skills) / len(skills_in_jd)) * 100
+                        
+                        # Hybrid Calculation: 70% strict keyword match + 30% semantic vibe
+                        match_pct = round((0.7 * skill_tally_score) + (0.3 * semantic_score), 2)
+                    else:
+                        # Fallback if the JD doesn't contain any keywords from skill_db
+                        match_pct = round(semantic_score, 2)
 
                 # --- VISUAL SECTION ---
                 col1, col2 = st.columns([1, 1])
