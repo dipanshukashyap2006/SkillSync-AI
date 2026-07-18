@@ -1,0 +1,6 @@
+streamlit
+spacy
+pymupdf
+requests
+sentence-transformers
+google-generativeai
