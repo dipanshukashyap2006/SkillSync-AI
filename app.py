@@ -35,7 +35,7 @@ def load_models():
     
     # Load the "Brain" (SentenceTransformer)
     # This model is small (420MB) but very smart
-    embed_model = SentenceTransformer('all-MiniLM-L6-v2', device='cuda')
+    embed_model = SentenceTransformer('all-MiniLM-L6-v2', device='cpu')
     
     return nlp, embed_model
 
