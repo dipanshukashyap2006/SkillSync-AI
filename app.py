@@ -62,8 +62,7 @@ with st.sidebar:
     status = st.text_input("Academic Status:", placeholder="e.g., 4th Sem VTU")
     
     st.divider()
-    st.markdown(f"**Engine:** 💻 MSI Thin 15\n\n🚀 RTX 3050 (CUDA)")
-    st.caption("Theme: Social Impact, Equal Opportunity towards tech careers & Skill Development.")
+    st.markdown("Theme: Social Impact, Equal Opportunity towards tech careers & Skill Development.")
 
 # --- 2. MAIN DASHBOARD ---
 resume_file = st.file_uploader("Upload your Resume (PDF)", type="pdf")
