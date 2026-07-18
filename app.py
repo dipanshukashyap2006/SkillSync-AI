@@ -305,7 +305,7 @@ if resume_file:
         col_a, col_b = st.columns(2)
         with col_a:
             st.write("### 🐙 Project Source")
-            st.link_button("View on GitHub", "https://github.com/YOUR_USERNAME/SkillSync-AI")
+            st.link_button("View on GitHub",f"https://github.com/{gh_username}")
         with col_b:
             st.write("### 📄 Save Results")
             if 'response' in locals():
